@@ -1,0 +1,5 @@
+https://scrapinghub.github.io/xpath-playground/
+
+https://try.jsoup.org/
+
+https://docs.scrapy.org/en/latest/topics/selectors.html

@@ -1,5 +1,6 @@
 *.pyc
 *.json
 *.html
+*.csv
 Pipfile
 Pipfile.lock
