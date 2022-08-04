@@ -1,0 +1,5 @@
+*.pyc
+*.json
+*.html
+Pipfile
+Pipfile.lock
