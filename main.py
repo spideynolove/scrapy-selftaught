@@ -1,2 +1,3 @@
-temp = ['2', 'h', ' ', '32', 'm']
-print(''.join(temp))
+from shutil import which
+
+print(which('chromedriver'))

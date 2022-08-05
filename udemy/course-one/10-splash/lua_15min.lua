@@ -28,7 +28,7 @@ elseif s ~= 'walternate' then -- ~= is not equals.
     io.write('not over 40\n') -- Defaults to stdout.
 else
     -- Variables are global by default.
-    thisIsGlobal = 5 -- Camel case is common.
+    local thisIsGlobal = 5 -- Camel case is common.
 
     -- How to make a variable local:
     local line = io.read() -- Reads next stdin line.
@@ -38,7 +38,7 @@ else
 end
 
 
-foo = anUnknownVariable
-aBoolValue = false
+-- foo = anUnknownVariable
+local aBoolValue = false
 
 if not aBoolValue then print('twas false') end
