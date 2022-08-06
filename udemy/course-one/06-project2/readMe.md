@@ -1,5 +1,6 @@
 # Saving deal with new domains and start_urls
 
+```python
 # -*- coding: utf-8 -*-
 import scrapy
  
@@ -14,7 +15,7 @@ class SpecialOffersSpider(scrapy.Spider):
  
     def parse(self, response):
         pass
-        
+```
 
 # [stackoverflow](https://stackoverflow.com/questions/43960422/feed-export-encoding-option-not-working-for-for-items-files-in-scrapyd-python)
 
