@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
-import time
-from scrapy.linkextractors import LinkExtractor
-from scrapy.spiders import CrawlSpider, Rule
+import re
+from scrapy.spiders import CrawlSpider
 
 
 class BestmoviesSpider(CrawlSpider):
@@ -12,33 +11,23 @@ class BestmoviesSpider(CrawlSpider):
     user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36'
 
     def start_requests(self):
-        yield scrapy.Request(url=self.imdb_url, headers={
+        yield scrapy.Request(url=self.imdb_url, callback=self.parse_item, headers={
             'User-Agent': self.user_agent
         })
 
-    rules = (
-        Rule(LinkExtractor(restrict_xpaths=(
-            "//h3[@class='lister-item-header']/a")), callback='parse_item',
-            follow=True, process_request='set_user_agent'),
-        Rule(LinkExtractor(restrict_xpaths=(
-            "(//a[@class='lister-page-next next-page'])[2]")),
-            process_request='set_user_agent'),
-    )
-
-    def set_user_agent(self, request, response):
-        request.headers['User-Agent'] = self.user_agent
-        # request.meta['genre'] = response.xpath(
-        #     "//span[@class='genre']/text()").getall()
-        return request
-
     def parse_item(self, response):
-        time.sleep(0.5)
-        yield {
-            "title": response.xpath("//h1[@data-testid='hero-title-block__title']/text()").get(),
-            "year": response.xpath("(//span[@class='sc-8c396aa2-2 itZqyK'])[1]/text()").get(),
-            "duration": ''.join(response.xpath("//ul[@data-testid='hero-title-block__metadata']/li[3]/text()").getall()),
-            "genre": response.xpath("//li[@data-testid= 'storyline-genres']/div/ul/li/a/text()").get(),
-            "rating": response.xpath("(//div[@data-testid = 'hero-rating-bar__aggregate-rating__score']/span)[1]/text()").get(),
-            "movie_url": response.url,
-            # "genre": response.request.meta['genre']
-        }
+        for item in response.xpath("(//div[@class='lister-item-content'])"):
+            yield {
+                "title": item.xpath(".//h3[@class='lister-item-header']/a/text()").get(),
+                "year": re.findall(r'\d+', item.xpath(".//h3[@class='lister-item-header']/span[2]/text()").get())[0],
+                "duration": item.xpath(".//p[1]/span[@class='runtime']/text()").get(),
+                "genre": item.xpath("normalize-space(.//p[1]/span[@class='genre']/text())").get(),
+                "rating": item.xpath(".//div[@class= 'ratings-bar']/div[1]/@data-value").get(),
+                "movie_url": response.urljoin(item.xpath(".//h3[@class='lister-item-header']/a/@href").get()),
+            }
+        next_page = response.xpath(
+            "(//a[@class='lister-page-next next-page'])[2]/@href").get()
+        if next_page:
+            yield scrapy.Request(url=response.urljoin(next_page), callback=self.parse_item, headers={
+                'User-Agent': self.user_agent
+            })

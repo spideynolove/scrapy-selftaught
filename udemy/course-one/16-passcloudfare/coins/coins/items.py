@@ -6,12 +6,7 @@
 import scrapy
 
 
-class ImdbItem(scrapy.Item):
+class CoinsItem(scrapy.Item):
     # define the fields for your item here like:
-    title = scrapy.Field()
-    year = scrapy.Field()
-    duration = scrapy.Field()
-    genre = scrapy.Field()
-    rating = scrapy.Field()
-    movie_url = scrapy.Field()
+    # name = scrapy.Field()
     pass

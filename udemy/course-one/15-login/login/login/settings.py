@@ -1,4 +1,4 @@
-# Scrapy settings for imdb project
+# Scrapy settings for login project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'imdb'
+BOT_NAME = 'login'
 
-SPIDER_MODULES = ['imdb.spiders']
-NEWSPIDER_MODULE = 'imdb.spiders'
+SPIDER_MODULES = ['login.spiders']
+NEWSPIDER_MODULE = 'login.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'imdb (+http://www.yourdomain.com)'
+#USER_AGENT = 'login (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -25,7 +25,7 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-# DOWNLOAD_DELAY = 0.5
+#DOWNLOAD_DELAY = 3
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -37,36 +37,35 @@ ROBOTSTXT_OBEY = True
 #TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-# DEFAULT_REQUEST_HEADERS = {
+#DEFAULT_REQUEST_HEADERS = {
 #   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
 #   'Accept-Language': 'en',
-# }
+#}
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-# SPIDER_MIDDLEWARES = {
-#    'imdb.middlewares.ImdbSpiderMiddleware': 543,
-# }
+#SPIDER_MIDDLEWARES = {
+#    'login.middlewares.LoginSpiderMiddleware': 543,
+#}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
-#    'imdb.middlewares.ImdbDownloaderMiddleware': 543,
-# }
+#DOWNLOADER_MIDDLEWARES = {
+#    'login.middlewares.LoginDownloaderMiddleware': 543,
+#}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
-# EXTENSIONS = {
+#EXTENSIONS = {
 #    'scrapy.extensions.telnet.TelnetConsole': None,
-# }
+#}
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-    'imdb.pipelines.MongoPipeline': 300,
-    # 'imdb.pipelines.SQLitePipeline': 300,
-    # 'imdb.pipelines.FilterDuplicate': 100,
-}
+#ITEM_PIPELINES = {
+#    'login.pipelines.LoginPipeline': 300,
+#}
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
@@ -87,5 +86,3 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-
-MONGODB_URI = "Hello World"

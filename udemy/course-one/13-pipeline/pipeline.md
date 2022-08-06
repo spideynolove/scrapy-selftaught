@@ -6,3 +6,5 @@
 -[why we configure 0.0.0.0/0](https://www.mongodb.com/docs/manual/core/security-mongodb-configuration/) 
 
 # What if encounter duplicated record?
+
+# improve MongoDB push to localDB
