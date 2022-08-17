@@ -25,3 +25,4 @@
 
 # [TestBed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm)
 
+# [Selector](https://docs.scrapy.org/en/latest/topics/selectors.html)
