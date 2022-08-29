@@ -1,3 +1,4 @@
+
 # Saving deal with new domains and start_urls
 
 ```python
@@ -18,6 +19,5 @@ class SpecialOffersSpider(scrapy.Spider):
 ```
 
 # [stackoverflow](https://stackoverflow.com/questions/43960422/feed-export-encoding-option-not-working-for-for-items-files-in-scrapyd-python)
-
 
 # [glassesshop_exercise](https://www.glassesshop.com/bestsellers)

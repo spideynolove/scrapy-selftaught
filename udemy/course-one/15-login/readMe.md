@@ -1,11 +1,14 @@
+
 # Formrequest.from_response
 
 # Handle JS form
+
 -if the form does require **JavaScript** then you can't use the **FormRequest** class,
 so as an alternative solution you have to use another class called **SplashFormRequest**
 -make sure to add **Splash** to your settings.py file
 
 # [Code example](https://stackoverflow.com/questions/23398885/is-there-a-way-to-add-embedded-python-code-to-markdown)
+
 ```python
 # Splash should be running on the background
  
@@ -52,4 +55,3 @@ class QuotesLoginSpider(scrapy.Spider):
         if response.xpath("//a[@href='/logout']/text()").get():
             print('logged in')
 ```
-

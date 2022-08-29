@@ -1,4 +1,6 @@
-bugs:
+
+# bugs
+
 - logical vs syntax
 - [Scrapy Debug](https://docs.scrapy.org/en/latest/topics/debug.html)
 - scrapy parse ...

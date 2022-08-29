@@ -1,8 +1,10 @@
-# Common steps:
-    - Docs: https://splash.readthedocs.io/en/stable/
-    - disable JS: Ctrl Shift P
-    - Install Docker:
-        + sudo apt-get update
+
+# Common steps
+
+- [Docs](https://splash.readthedocs.io/en/stable/)
+- disable JS: Ctrl Shift P
+- Install Docker:
++sudo apt-get update
   
 sudo apt-get install \
     apt-transport-https \

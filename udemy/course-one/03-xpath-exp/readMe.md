@@ -1,20 +1,25 @@
+
 # Xpath
+
 - go up and down in the middle page
 - name, attributes, class id
-    - 
+
 # css query
+
 - [css](https://try.jsoup.org/)
-- using . or # 
+- using . or #
 - attr ~ foreign attr : start between end
 - cheatsheet IMPORTANT after
-    + nth-child
-    + "+"
-- sibling 
++nth-child
++"+"
+- sibling
 
 # Selector cheatsheet
+
 - [xpath-playground](https://scrapinghub.github.io/xpath-playground/)
 
-# Reference:
+# Reference
+
 - [Xpath cheatsheet](https://devhints.io/xpath)
 
 # ONly learn xpath

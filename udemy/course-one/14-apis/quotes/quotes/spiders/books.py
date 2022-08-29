@@ -15,7 +15,8 @@ class BooksSpider(scrapy.Spider):
         resp = json.loads(response.body)
 
         # if response.status == 500:
-        if self.offset > int(resp.get('ebook_count')):
+        # if self.offset > int(resp.get('ebook_count')):
+        if self.offset > 50:
             raise CloseSpider('Already visit last page...')
 
         ebooks = resp.get('works')
